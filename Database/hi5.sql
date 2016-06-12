@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2016 a las 16:53:59
+-- Tiempo de generación: 13-06-2016 a las 01:41:44
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.20
 
@@ -42,6 +42,21 @@ INSERT INTO `friend` (`id`, `friend_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `post`
+--
+
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `friend_id` int(11) NOT NULL,
+  `message` varchar(300) NOT NULL,
+  `picture` varchar(150) DEFAULT NULL,
+  `hi5` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `user`
 --
 
@@ -57,7 +72,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `picture`) VALUES
-(4, 'Andrew', 'augedsa@gmail.com', 'https://s.gravatar.com/avatar/8da1ac1f157ea754cf39ec5081b666ac?s=480'),
+(4, 'Augusto Ramirez', 'augedsa@gmail.com', 'https://s.gravatar.com/avatar/8da1ac1f157ea754cf39ec5081b666ac?s=480'),
 (6, 'Arcadio', 'arcadio.perniac@gmail.com', 'https://s.gravatar.com/avatar/46687b2521ead150e6bf6cf272ba2eee?s=480'),
 (7, 'Jesus Sanchez', 'jesusgsancheze@gmail.com', 'https://s.gravatar.com/avatar/84c45f34813bff3bf46630bcae61f614?s=480');
 
@@ -69,6 +84,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `picture`) VALUES
 -- Indices de la tabla `friend`
 --
 ALTER TABLE `friend`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `post`
+--
+ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -86,6 +107,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `friend`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT de la tabla `post`
+--
+ALTER TABLE `post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --

@@ -1,5 +1,6 @@
 <?php
 $conn = mysqli_connect("localhost","root","","hi5");
+//$conn = mysqli_connect("localhost","miptocom_hi5","Mipto2016!","miptocom_hi5");
 // Check connection
 if (mysqli_connect_errno())
 {
