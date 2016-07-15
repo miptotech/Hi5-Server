@@ -1,9 +1,9 @@
 <?php
 	require('Config/database.php');
 
-	$id = $_GET['id'];
+	$post_id = $_GET['post_id'];
 
-	$query="SELECT p.*, u.name as name FROM post p JOIN user u ON p.user_id = u.id WHERE p.user_id = '$id'";
+	$query="SELECT c.*, u.name as name FROM comment c JOIN user u ON c.user_id = u.id  WHERE c.post_id = '$post_id'";
 
 	$result = mysqli_query($conn, $query);
 
