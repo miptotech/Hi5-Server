@@ -3,7 +3,7 @@
 
 	$id = $_GET['id'];
 
-	$query="SELECT g.* FROM `group` AS g INNER JOIN `group_user` AS gu ON g.id = gu.group_id WHERE gu.user_id = '$id'";
+	$query="SELECT u.* FROM `group` AS g INNER JOIN `group_user` AS gu ON g.id = gu.group_id INNER JOIN `user` AS u ON gu.user_id = u.id WHERE g.id = '$id'";
 
 	$result = mysqli_query($conn, $query);
 

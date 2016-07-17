@@ -2,12 +2,16 @@
 	require('Config/database.php');
 
 	// Vars
-	// $post_id   = $_GET['post_id'];
-	// $user_id   = $_GET['user_id'];
-	// $text      = $_GET['message'];
+	$user_id     = $_GET['user_id'];
+	$name        = $_GET['name'];
+	$description = $_GET['description'];
 
-	$query="INSERT INTO group () VALUES ();"; //realizar query
+	$query="INSERT INTO `group` (user_id,name,description) VALUES ('$user_id','$name','$description');"; //realizar query
+	$result = mysqli_query($conn, $query);
 
+	$group_id = mysqli_insert_id($conn);
+
+	$query="INSERT INTO `group_user` (user_id,group_id) VALUES ('$user_id','$group_id');"; //realizar query
 	$result = mysqli_query($conn, $query);
 
 	echo "ok";

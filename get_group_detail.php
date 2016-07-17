@@ -1,9 +1,9 @@
 <?php
 	require('Config/database.php');
 
-	$email = $_GET['email'];
+	$id = $_GET['id'];
 
-	$query="SELECT * FROM user WHERE email = '$email'";
+	$query="SELECT * FROM `group` WHERE id = '$id'";
 
 	$result = mysqli_query($conn, $query);
 

@@ -1,9 +1,10 @@
 <?php
 	require('Config/database.php');
 
-	$id = $_GET['id'];
+	$group_id = $_GET['group_id'];
+	$user_id  = $_GET['user_id'];
 
-	$query="SELECT g.* FROM `group` AS g INNER JOIN `group_user` AS gu ON g.id = gu.group_id WHERE gu.user_id = '$id'";
+	$query="SELECT u.* FROM `user` u WHERE u.id IN (SELECT friend_id FROM  `friend` WHERE user_id='$user_id') AND u.id NOT IN (SELECT user_id FROM `group_user` WHERE group_id = '$group_id')";
 
 	$result = mysqli_query($conn, $query);
 
