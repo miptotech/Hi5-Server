@@ -1,10 +1,9 @@
 <?php
 	require('Config/database.php');
 
-	$search = $_GET['search'];
-	$id = $_GET['id'];
+	$group_id = $_GET['group_id'];
 
-	$query="SELECT * FROM user WHERE id <> '$id' AND (name LIKE '%$search%' OR email LIKE '%$search%')";
+	$query="SELECT p.*, g.name as name FROM post p JOIN `group` g ON p.group_id = g.id WHERE p.group_id = '$group_id'";
 
 	$result = mysqli_query($conn, $query);
 
