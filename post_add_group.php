@@ -2,9 +2,9 @@
 	require('Config/database.php');
 
 	// Vars
-	$user_id     = $_GET['user_id'];
-	$name        = $_GET['name'];
-	$description = $_GET['description'];
+	$user_id     = $_POST['user_id'];
+	$name        = $_POST['name'];
+	$description = $_POST['description'];
 
 	$query="INSERT INTO `group` (user_id,name,description) VALUES ('$user_id','$name','$description');"; //realizar query
 	$result = mysqli_query($conn, $query);
