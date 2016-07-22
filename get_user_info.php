@@ -3,7 +3,7 @@
 
 	$email = $_GET['email'];
 
-	$query="SELECT * FROM user WHERE email = '$email'";
+	$query="SELECT user.id, user.picture, user.name, user.email, user.gender, DATE_FORMAT(user.birthday,'%M %d, %Y') as birthday FROM user WHERE email = '$email'";
 
 	$result = mysqli_query($conn, $query);
 

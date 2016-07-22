@@ -1,10 +1,10 @@
 <?php
 	require('Config/database.php');
 
-	$search = $_GET['search'];
+	$search = strtolower($_GET['search']);
 	$id = $_GET['id'];
 
-	$query="SELECT * FROM user WHERE id <> '$id' AND (name LIKE '%$search%' OR email LIKE '%$search%')";
+	$query="SELECT u.* FROM user u WHERE u.id <> '$id' AND (LOWER(u.name) LIKE '%$search%' OR LOWER(u.email) LIKE '%$search%') AND NOT EXISTS (SELECT f.id FROM friend f WHERE f.friend_id = u.id AND f.user_id = '$id')";
 
 	$result = mysqli_query($conn, $query);
 

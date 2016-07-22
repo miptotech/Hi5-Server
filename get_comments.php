@@ -3,7 +3,7 @@
 
 	$post_id = $_GET['post_id'];
 
-	$query="SELECT c.*, u.name as name FROM comment c JOIN user u ON c.user_id = u.id  WHERE c.post_id = '$post_id'";
+	$query="SELECT c.*, u.name as name, u.picture as picture FROM comment c JOIN user u ON c.user_id = u.id  WHERE c.post_id = '$post_id' ORDER BY c.created_at ASC";
 
 	$result = mysqli_query($conn, $query);
 

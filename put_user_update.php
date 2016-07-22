@@ -29,7 +29,7 @@
 		$picture = $url_base . $target_file;
 	}
 
-	$query="UPDATE user SET name = '$name', gender = '$gender', birthday = '$birthday'";
+	$query="UPDATE user SET name = '$name', gender = '$gender', birthday = '$birthday' ";
 
 	if(isset($picture)){
 		$query .= ", picture = '$picture'";
@@ -38,5 +38,7 @@
 
 	$result = mysqli_query($conn, $query);
 
-	echo "ok";
+	$formatdate = date("F d, Y", strtotime($birthday));
+
+	echo $formatdate;
 ?>
